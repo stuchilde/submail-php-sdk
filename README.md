@@ -11,14 +11,14 @@ SUBMAIL赛邮云通信作为专业短信群发平台,致力于为政企及个人
 Via Composer
 
 ``` bash
-$ composer require Ekko/submail-php-sdk
+$ composer require Eckoo/submail-php-sdk
 ```
 
 也可以修改composer.json之后，执行  composer update  更新项目
 
 ```json
 "require": {
-    "ekko/submail-php-sdk" : "~1.0"
+    "eckoo/submail-php-sdk" : "~1.0"
 }
 ```
 

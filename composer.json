@@ -1,5 +1,5 @@
 {
-    "name": "Ekko/submail-php-sdk",
+    "name": "Eckoo/submail-php-sdk",
     "description": "赛邮云通信submail php'sdk",
     "keywords": [
         "短信,语音,邮件与国际短信",
@@ -11,7 +11,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Ekko",
+            "name": "Eckoo",
             "email": "howcyan@gmail.com",
             "homepage": "https://www.mysubmail.com/",
             "role": "Developer"
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ekko\\Submail\\": "src"
+            "Eckoo\\Submail\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ekko\\Submail\\": "tests"
+            "Eckoo\\Submail\\": "tests"
         }
     },
     "type" : "library",
@@ -45,10 +45,10 @@
         },
         "laravel": {
             "providers": [
-                "Ekko\\SDK\\ServiceProvider"
+                "Eckoo\\SDK\\ServiceProvider"
             ],
             "aliases": {
-                "Debugbar": "Ekko\\SDK\\Facade"
+                "Debugbar": "Eckoo\\SDK\\Facade"
             }
         }
     }

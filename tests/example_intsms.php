@@ -4,7 +4,7 @@
  *  intsms sdk demo
  *  @version 1.0.0
  *  @todo use for email sdk.
- *  @author Ekko <howcyan@gmail.com>
+ *  @author Eckoo <howcyan@gmail.com>
  */
 
 require('../vendor/autoload.php');
