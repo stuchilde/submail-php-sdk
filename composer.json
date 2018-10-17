@@ -1,0 +1,46 @@
+{
+    "name": "Ekko/submail",
+    "description": "",
+    "keywords": [
+        "短信,语音,邮件与国际短信",
+        "php",
+        "赛邮云通信",
+        "接口api sdk"
+    ],
+    "homepage": "https://www.mysubmail.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ekko",
+            "email": "howcyan@gmail.com",
+            "homepage": "https://www.mysubmail.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0",
+        "guzzlehttp/guzzle": "^6.3@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ekko\\Submail\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ekko\\Submail\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
