@@ -1,6 +1,6 @@
 # 赛邮云通信 PHP SDK
 
-**Note:** 内部调用依赖于guzzlehttp/guzzle 组件
+**Note:** 内部依赖于guzzlehttp/guzzle 组件
 
 这个SDK主要是对 **[赛邮云通信](https://www.mysubmail.com/)** 的HTTP短信发送相关API的PHP封装。
 
@@ -14,7 +14,7 @@ Via Composer
 $ composer require Ekko/submail-php-sdk
 ```
 
-也可以直接追加到composer.json
+也可以修改composer.json之后，执行  composer update  更新项目
 
 ```json
 "require": {
@@ -26,7 +26,10 @@ $ composer require Ekko/submail-php-sdk
 
 如果单独使用别忘了引入composer生成的autoload.php文件
 
-如果是laravel用户可以不用手动include
+如果是laravel用户可以不用手动include,需要执行
+``` bash
+$ php artisan vendor:publish --tag=config
+```    
 
 使用此sdk之前别忘了先在[赛邮云通信官网](https://www.mysubmail.com/)注册并申请相应的**apikey**
 

@@ -1,6 +1,6 @@
 {
-    "name": "Ekko/submail",
-    "description": "",
+    "name": "Ekko/submail-php-sdk",
+    "description": "赛邮云通信submail php'sdk",
     "keywords": [
         "短信,语音,邮件与国际短信",
         "php",
@@ -35,12 +35,21 @@
             "Ekko\\Submail\\": "tests"
         }
     },
+    "type" : "library",
     "scripts": {
         "test": "phpunit"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Ekko\\SDK\\ServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Ekko\\SDK\\Facade"
+            }
         }
     }
 }
