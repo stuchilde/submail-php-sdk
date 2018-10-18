@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Eckoo\\Submail\\": "src"
+            "Eckoo\\SDK\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eckoo\\Submail\\": "tests"
+            "Eckoo\\SDK\\": "tests"
         }
     },
     "type" : "library",
@@ -45,7 +45,7 @@
         },
         "laravel": {
             "providers": [
-                "Eckoo\\SDK\\ServiceProvider"
+                "Eckoo\\SDK\\SubmailServiceProvider"
             ],
             "aliases": {
                 "Debugbar": "Eckoo\\SDK\\Facade"

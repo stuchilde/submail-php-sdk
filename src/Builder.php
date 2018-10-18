@@ -2,9 +2,12 @@
 
 /**
  *  @version 1.0.0
- *  @todo use for sms sdk.
+ *  @todo build then send
  *  @author Eckoo <howcyan@gmail.com>
  */
 
-require('../vendor/autoload.php');
 
+ class Builder 
+ {
+
+ }
