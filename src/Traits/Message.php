@@ -10,10 +10,9 @@ namespace Eckoo\SDK\Traits;
 
 trait Message
 {
-    protected function  sendMessage($method)   :string
+    protected function  sendMessage()
     {
-
-        return json_encode($this->config);
+        $this->get_status();
     }
 
     protected function sendxMessage($conf)

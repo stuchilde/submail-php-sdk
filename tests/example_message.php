@@ -14,8 +14,8 @@ $configs = [
         'base_url'   =>  'https://api.mysubmail.com/',
 
         'message'   =>  [
-            'appid'    =>  'YOUR MESSAGE_API',
-            'appkey'    =>  'YOUR MESSAGE_KEY',
+            'appid'    =>  '27761',
+            'appkey'    =>  '597233cb916bf27b645907f21bcd7d46',
             'project'    =>  'YOUR MESSAGE_PROJ',
             'sign_type'    =>  'YOUR MESSAGE_SIGN'
         ],
@@ -40,16 +40,12 @@ $configs = [
         ]
     ]
 ];
-
-
-$data = [
-    'to'=>'13027232773',
-    'content'=>'【天琴座】我们生活的多姿源自自然堂的滋润，验证码9527',
-];
-
 $obj = new Submail($configs);
 
 $tmp = $obj->set_category('message');
+$to='13027232773';
+$content    =   "【SUBMAIL】您的短信验证码：4438，请在10分钟内输入。";
+$obj->sendSMS($to,$content,$sign_type='md5');
 // var_dump($tmp);
 echo '<pre>';
 var_dump($obj);die;
