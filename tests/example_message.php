@@ -14,9 +14,9 @@ $configs = [
         'base_url'   =>  'https://api.mysubmail.com/',
 
         'message'   =>  [
-            'appid'    =>  '27761',
-            'appkey'    =>  '597233cb916bf27b645907f21bcd7d46',
-            'project'    =>  'DrP9S3',
+            'appid'    =>  '******',
+            'appkey'    =>  '******',
+            'project'    =>  '******',
             'sign_type'    =>  '******'
         ],
 
@@ -65,7 +65,7 @@ $obj->set_category('message');
  *  如模版【Submail】验证码@var(code),当天使用有效。
  *  @function messagexSend($to,$vars)
  * */
-//$to =    '13027232773';
+//$to =    '130********';
 //$vars   =   array('code'=>rand(100,999));
 //$res    =   $obj->messagexSend($to,$vars);
 
@@ -76,10 +76,10 @@ $obj->set_category('message');
  *  @data必须为数组格式，且to元素非空
  *  @content必须为字符串，
  * */
-//$content    =   '【夏学进】您好，@var(name)，您的取货码为 @var(code)';
+//$content    =   '【Submail】您好，@var(name)，您的取货码为 @var(code)';
 //$data=[
-//    ['to'=>'13027232773','name'=>'master','code'=>rand(100,999)],
-//    ['to'=>'13175217275','name'=>'slave','code'=>rand(100,999)]
+//    ['to'=>'130********','name'=>'master','code'=>rand(100,999)],
+//    ['to'=>'130********','name'=>'slave','code'=>rand(100,999)]
 //];
 //
 //$res    =   $obj->messageMultisend($content,$data);
@@ -92,7 +92,7 @@ $obj->set_category('message');
  *  @data必须为数组格式，且to元素非空
  * */
 //$data=[
-//    ['to'=>'13027232773 ','name'=>'master','code'=>rand(100,999)],
+//    ['to'=>'130******** ','name'=>'master','code'=>rand(100,999)],
 //    ['to'=>'187********','name'=>'John','code'=>rand(100,999)]
 //];
 //
