@@ -58,56 +58,51 @@ trait Message
         return $res;
     }
 
-//    protected function sendxMessage($to,$vars='')
-//    {
-//        $res['timestamp']   =   $this->get_timestamp();
-//        $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
-//        $res['appid']   =   $this->appid;
-//        $res['sign_type']   =   $this->sign_type;
-//
-//        $res['project']   =   $this->project;
-//        $res['to']   =  $to;
-//        if($vars) $res['vars'] =   json_encode($vars);
-//
-//        $res['signature']   =  $this->create_sign($res);
-//        return $res;
-//    }
+    /**
+     * @param $recipient
+     * @param $project
+     * @param $result_status
+     * @param $start_date
+     * @param $end_date
+     * @param $order_by
+     * @param $rows
+     * @param $offset
+     * @return array
+     */
+    public function get_sms_log($recipient,$project,$result_status,$start_date,$end_date,$order_by,$rows,$offset)
+    {
+        $res['timestamp']   =   $this->get_timestamp();
+        $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
+        $res['appid']   =   $this->appid;
+        $res['sign_type']   =   $this->sign_type;
 
-//    protected function multisendMessage($data,$content='')
-//    {
-//        $res['timestamp']   =   $this->get_timestamp();
-//        $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
-//        $res['content'] =   $content;
-//        $res['multi']   =   $data;
-//        foreach ($data as $k=>$v){
-//            $res['multi'][$k][$v['to']] =   $v['to'];
-//            unset($v['to']);
-//            $res['multi'][$k]['vars'] =   $v;
-//        }
-//        $res['appid']   =   $this->appid;
-//        $res['multi']   =   json_encode($res['multi']);
-//        $res['sign_type']   =   $this->sign_type;
-//        $res['signature']   =  $this->create_sign($res);
-//        return $res;
-//    }
-//
-//    protected function multixsendMessage($data)
-//    {
-//        $res['timestamp']   =   $this->get_timestamp();
-//        $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
-//        $res['multi']   =   $data;
-//        foreach ($data as $k=>$v){
-//            $res['multi'][$k][$v['to']] =   $v['to'];
-//            unset($v['to']);
-//            $res['multi'][$k]['vars'] =   $v;
-//        }
-//        $res['appid']   =   $this->appid;
-//        $res['project']   =   $this->project;
-//        $res['multi']   =   json_encode($res['multi']);
-//        $res['sign_type']   =   $this->sign_type;
-//        $res['signature']   =  $this->create_sign($res);
-//        return $res;
-//    }
+        if($recipient){
+            $res['recipient']   =   $recipient;
+        }
+        if($project){
+            $res['project']   =   $project;
+        }
+        if($result_status){
+            $res['result_status']   =   $result_status;
+        }
+        if($start_date){
+            $res['start_date']   =   $start_date;
+        }
+        if($end_date){
+            $res['end_date']   =   $end_date;
+        }
+        if($order_by) {
+            $res['order_by'] = $order_by;
+        }
+        if($rows){
+            $res['rows'] = $rows;
+        }
+        if($offset){
+            $res['offset'] = $offset;
+        }
+        $res['signature']   =  $this->create_sign($res);
+        return $res;
+    }
     
     
 }

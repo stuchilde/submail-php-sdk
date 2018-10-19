@@ -76,13 +76,13 @@ $obj->set_category('message');
  *  @data必须为数组格式，且to元素非空
  *  @content必须为字符串，
  * */
-$content    =   '【夏学进】您好，@var(name)，您的取货码为 @var(code)';
-$data=[
-    ['to'=>'13027232773','name'=>'master','code'=>rand(100,999)],
-    ['to'=>'13175217275','name'=>'slave','code'=>rand(100,999)]
-];
-
-$res    =   $obj->messageMultisend($content,$data);
+//$content    =   '【夏学进】您好，@var(name)，您的取货码为 @var(code)';
+//$data=[
+//    ['to'=>'13027232773','name'=>'master','code'=>rand(100,999)],
+//    ['to'=>'13175217275','name'=>'slave','code'=>rand(100,999)]
+//];
+//
+//$res    =   $obj->messageMultisend($content,$data);
 
 
 
@@ -97,6 +97,11 @@ $res    =   $obj->messageMultisend($content,$data);
 //];
 //
 //$res    =   $obj->messageMultixsend($data);
+
+/*
+ *  getSmsCredits，查询短信可用条数
+ * */
+$res    =   $obj->getSmsLog();
 
 var_dump(json_encode($res));die;
 //echo '<pre>';

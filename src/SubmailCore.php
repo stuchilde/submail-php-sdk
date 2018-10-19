@@ -37,6 +37,10 @@ abstract class SubmailCore
         ]);
     }
 
+
+    /**
+     * @param $category
+     */
     public function set_category($category)
     {
         if($category){
@@ -50,8 +54,13 @@ abstract class SubmailCore
             unset($this->configs);
         }
     }
-    
-    public function send($data,$method='')
+
+    /**
+     * @param $data
+     * @param string $method
+     * @return array|ResponseInterface
+     */
+    protected function send($data,$method='')
     {
         $path   =   $this->category.'/'.$this->send_type;
         $method =    strtolower($method);
@@ -68,6 +77,10 @@ abstract class SubmailCore
         return $response;
     }
 
+    /**
+     * @param $request
+     * @return string
+     */
     protected   function create_sign($request)
     {
              ksort($request);
@@ -94,6 +107,10 @@ abstract class SubmailCore
              return $r;
     }
 
+    /**
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function get_timestamp()
     {
         $res    =   $this->http->request('GET', '/service/timestamp');
@@ -106,6 +123,23 @@ abstract class SubmailCore
          return $this->processResponse($res);
     }
 
+    /**
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    protected function get_credits(){
+        $res['timestamp']   =   $this->get_timestamp();
+        $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
+        $res['appid']   =   $this->appid;
+        $res['sign_type']   =   $this->sign_type;
+        $res['signature']   =  $this->create_sign($res);
+        return $res;
+    }
+
+    /**
+     * @param ResponseInterface $response
+     * @return array
+     */
     protected function processResponse(ResponseInterface $response){
         $body   =  $response->getBody();
         $contents    =   $body->getContents();

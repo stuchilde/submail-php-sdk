@@ -50,7 +50,7 @@ $res    =   $obj->messageSend($to,$content);
 > | :--- | :--- | :----- | --------------------------------------- |
 > | to | ture | string | 接收方号码                            |
 > | content | true | string    | 必须包含【公司名】签名的文本内容|
-###### message **xSend**
+###### messagexSend
 ``` php
 <?php 
 $obj->set_category('message');
