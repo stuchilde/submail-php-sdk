@@ -2,6 +2,10 @@
 
 ###### GATEAWAY_URL
 > [https://api.mysubmail.com/](https://api.mysubmail.com/)
+
+
+***注意:***
+凡是涉及xsend方法，需要保持项目ID(project)在配置有效。
 ###### messageSend(自定义短信)
 ``` php
 <?php 
@@ -92,6 +96,3 @@ $recipient,$project,$result_status,$start_date,$end_date,$order_by,$rows,$offset
 > | order_by | false | array | 返回数据时执行的升序或降序（asc or desc） | 
 > | rows | false | string | 单次返回数据的行数 | 
 > | offset | false | string | 数据偏移指针 | 
-
-***注意:***
-凡是涉及xsend方法，需要保持项目ID(project)在配置有效。
