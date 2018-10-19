@@ -17,12 +17,12 @@ use Psr\Http\Message\ResponseInterface;
 abstract class SubmailCore
 {
 
-    protected   $category='';
     protected   $configs=array();
     protected   $http;
     protected   $appid='';
     protected   $appkey='';
     protected   $project='';
+    protected   $category='';
     protected   $sign_type='';
     protected   $send_type  ='';
     protected   $timestamp  =   '';
@@ -54,7 +54,7 @@ abstract class SubmailCore
     public function send($data,$method='')
     {
         $path   =   $this->category.'/'.$this->send_type;
-        $method=strtolower($method);
+        $method =    strtolower($method);
         if($method=='get'){
             $response=$this->http->get($path,[
                 'query'=>$data

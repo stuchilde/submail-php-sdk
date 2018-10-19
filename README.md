@@ -33,7 +33,7 @@ $ php artisan vendor:publish --tag=config
 
 使用此sdk之前别忘了先在[赛邮云通信官网](https://www.mysubmail.com/)注册并申请相应的**apikey**
 ## SDK
-#### 发送短信
+#### [发送短信](./doc/Message.md)
 
 ###### GATEAWAY_URL
 > [https://api.mysubmail.com/](https://api.mysubmail.com/)
@@ -64,60 +64,17 @@ $res    =   $obj->messagexSend($to,$vars);
 > | to | ture | string | 接收方号码                            |
 > | vars | true | array    | 必须包含【公司名】签名的文本内容|
 
-
-###### messageMultisend
-``` php
-<?php 
-$obj->set_category('message');
-$content    =   '【SUBMAIL】您好，@var(name)，您的取货码为 @var(code)';
-$data=[
-    ['to'=>'130********','name'=>'master','code'=>rand(100,999)],
-    ['to'=>'187********','name'=>'李四','code'=>rand(100,999)]];
-$res    =   $obj->messageMultisend($data,$content);
-```
-###### 请求参数
-> | 参数 | 必选 | 类型   | 说明                                    |
-> | :--- | :--- | :----- | --------------------------------------- |
-> | data | ture | array | 接收方信息,必须包含@var(key)并必须与content对应|
-> | content | true | string    | 必须包含【公司名】签名的文本内容和@var(key)|
-
-###### messageMulti **xsend**
-``` php
-<?php 
-$obj->set_category('message');
-$data=[
-    ['to'=>'130********','name'=>'张三','code'=>rand(100,999)],
-    ['to'=>'187********','name'=>'李四','code'=>rand(100,999)]
-];
-
-$res    =   $obj->messageMultixsend($data);
-```
-###### 请求参数
-> | 参数 | 必选 | 类型   | 说明                                    |
-> | :--- | :--- | :----- | --------------------------------------- |
-> | data | ture | array | 接收方信息,必须包含@var(key)并保持官网模版对应 |  
-
 **注意**：凡是涉及xsend方法，需要保持项目ID(project)在配置有效。
 
-#### 发送邮件
+#### [发送邮件](./doc/Email.md)
 
-#### 发送语音
+#### [发送语音](./doc/Voice.md)
 
-#### 发送国际短信
+#### [发送国际短信](./doc/International_message.md)
 
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -125,7 +82,7 @@ If you discover any security related issues, please email :author_email instead 
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Eckoo](https://github.com/Eckoo)
 - [All Contributors](../../contributors)
 
 ## License
