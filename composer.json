@@ -2,7 +2,7 @@
     "name": "eckoo/submail-php-sdk",
     "description": "赛邮云通信submail php'sdk",
     "keywords": [
-        "短信,语音,邮件与国际短信",
+        "message,voice,email and international_message",
         "php",
         "赛邮云通信",
         "接口api sdk"
