@@ -9,7 +9,6 @@ namespace Eckoo\SDK;
  * @param string $appkey  APPKEY,必须
  * @param string $send_type 发送方式，如send,xsend等
  * @param string $sign_type 加密方式，用户选择的加密方式
- * @param array $response  响应结果对象
  */
 
 use GuzzleHttp\Client;
@@ -27,8 +26,7 @@ abstract class SubmailCore
     protected   $sign_type='';
     protected   $send_type  ='';
     protected   $timestamp  =   '';
-    protected   $response   =   null;
-    const ENCRYPT   =   array('normal','md5','sha1');   
+    const ENCRYPT   =   ['normal','md5','sha1'];
 
     public function __construct($configs)
     {
@@ -37,107 +35,81 @@ abstract class SubmailCore
             'base_uri'  =>    trim($configs['submail']['base_url']),
             'timeout'  => 2.0
         ]);
-
-        $this->response =   new \stdClass();
-        $this->response->reasonPhrase='Error';
-        $this->response->statusCode='404';
     }
 
     public function set_category($category)
     {
         if($category){
             $this->category =  strtolower($category);
-            $this->appid    =   $this->configs['submail'][$this->category]['appid'];
-            $this->appkey   =   $this->configs['submail'][$this->category]['appkey'];
-            $this->project  =   $this->configs['submail'][$this->category]['project'];
-            $this->sign_type    =   $this->configs['submail'][$this->category]['sign_type'];
+            $this->appid    =   trim($this->configs['submail'][$this->category]['appid']);
+            $this->appkey   =   trim($this->configs['submail'][$this->category]['appkey']);
+            $this->project  =   trim($this->configs['submail'][$this->category]['project']);
+            $sign   =   trim($this->configs['submail'][$this->category]['sign_type']);
+            $this->sign_type    =  in_array($sign,self::ENCRYPT)?   $sign:'normal';
+            unset($sign);
             unset($this->configs);
         }
     }
     
-    public function send($data)
+    public function send($data,$method='')
     {
         $path   =   $this->category.'/'.$this->send_type;
         $method=strtolower($method);
         if($method=='get'){
-            $response=$this->client->get($path,[
-                'query'=>$params
+            $response=$this->http->get($path,[
+                'query'=>$data
             ]);
         }else{
-            $response=$this->client->post($path,[
-                'form_params'=>$params
+            $response=$this->http->post($path,[
+                'form_params'=>$data
             ]);
         }
-
         $response=$this->processResponse($response);
         return $response;
     }
 
-    protected   function create_sign() 
-    { 
-        return 1;
-        // $configs=$this->configs[$category];
-        // $r='';
-        // if($request['sign_type']!=='normal'){
-        //     ksort($request);
-        //     reset($request);
-        //     foreach ($request as $key => $value) {
-        //         $str .=$key."=".$value."&";
-        //     }
-        //     $str =  substr($str,0,count($str)-2);
-
-        //     if(get_magic_quotes_gpc()){
-        //         $str = stripslashes($str);
-        //     }
-
-        //     switch ($request['sign_type']) {
-        //         case 'md5':
-        //             $r=md5($configs['appid'].$configs['appkey'].$str.$configs['appid'].$configs['appkey']);
-        //             break;
-        //         case 'sha1':
-        //             $r=sha1($configs['appid'].$configs['appkey'].$str.$configs['appid'].$configs['appkey']);
-        //             break;
-        //         default:
-        //             # code...
-        //             break;
-        //     }
-        //     return $r;
-        // }else{
-        //     return $configs['appkey'];
-        // }
-
+    protected   function create_sign($request)
+    {
+             ksort($request);
+             reset($request);
+             $str   =   '';
+             foreach ($request as $key => $value) {
+                 $str .=$key."=".$value."&";
+             }
+             $str =  substr($str,0,count($str)-2);
+             if(get_magic_quotes_gpc()){
+                 $str = stripslashes($str);
+             }
+             switch ($request['sign_type']) {
+                 case 'md5':
+                     $r =   md5($this->appid.$this->appkey.$str.$this->appid.$this->appkey);
+                     break;
+                 case 'sha1':
+                     $r =   sha1($this->appid.$this->appkey.$str.$this->appid.$this->appkey);
+                     break;
+                 default:
+                     $r =   $this->appkey;
+                     break;
+             }
+             return $r;
     }
 
     public function get_timestamp()
     {
-        // echo 1;die;
-        // $res    =   $this->http->request('GET', '/service/timestamp');
-
-        // var_dump($res);die;
-        // $res = json_decode($res->getBody()->getContents(),true);
-        // echo $res;die;
-        // if($res->getStatusCode()    =='200'){
-        //     $body   = json_decode($res->getBody(),true); 
-        // }else{
-        //     return ['status'=>$res->getStatusCode(),'data'=>$res->getContents()];
-        // }
-        // return ($res->getStatusCode()=='200') ? $res->getBody():'';
+        $res    =   $this->http->request('GET', '/service/timestamp');
+        return $this->processResponse($res);
     }
 
     public function get_status()
     {
-
          $res    =   $this->http->request('GET', '/service/status');
-         $res=$this->processResponse($res);
-         return $res;
+         return $this->processResponse($res);
     }
 
     protected function processResponse(ResponseInterface $response){
-        $body=$response->getBody();
-        //$size=$body->getSize();
-        $cnt=$body->getContents();
-        $cntArr=json_decode($cnt,true);
-        $statusCode=$response->getStatusCode();
-        return ['status'=>$statusCode,'data'=>$cntArr];
+        $body   =  $response->getBody();
+        $contents    =   $body->getContents();
+        $contents =    json_decode($contents,true);
+        return ['code'=>$response->getStatusCode(),'status'=>$response->getReasonPhrase(),'data'=>$contents];
     }
 }
