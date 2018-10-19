@@ -33,7 +33,7 @@ $ php artisan vendor:publish --tag=config
 
 使用此sdk之前别忘了先在[赛邮云通信官网](https://www.mysubmail.com/)注册并申请相应的**apikey**
 ## SDK
-#### [发送短信](./doc/Message.md)
+#### [短信-阅读详细](./doc/Message.md)
 
 ###### GATEAWAY_URL
 > [https://api.mysubmail.com/](https://api.mysubmail.com/)
@@ -66,11 +66,11 @@ $res    =   $obj->messagexSend($to,$vars);
 
 **注意**：凡是涉及xsend方法，需要保持项目ID(project)在配置有效。
 
-#### [发送邮件](./doc/Email.md)
+#### [邮件-阅读详细](./doc/Email.md)
 
-#### [发送语音](./doc/Voice.md)
+#### [语音-阅读详细](./doc/Voice.md)
 
-#### [发送国际短信](./doc/International_message.md)
+#### [国际短信-阅读详细](./doc/International_message.md)
 
 ## Change log
 
