@@ -101,7 +101,7 @@ $obj->set_category('message');
 /*
  *  getSmsCredits，查询短信可用条数
  * */
-$res    =   $obj->getSmsLog();
+//$res    =   $obj->getSmsLog();
 
 var_dump(json_encode($res));die;
 //echo '<pre>';

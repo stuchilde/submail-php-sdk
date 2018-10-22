@@ -9,6 +9,7 @@
 namespace Eckoo\SDK;
 use Eckoo\SDK\Traits\HttpRequest;
 use Eckoo\SDK\Traits\Message;
+use Eckoo\SDK\Traits\Voice;
 use Eckoo\SDK\Traits\Mail;
 
 class Submail   extends SubmailCore
@@ -16,6 +17,7 @@ class Submail   extends SubmailCore
     use HttpRequest;
     use Message;
     use Mail;
+    use Voice;
 
     /**
      * @param $to
@@ -99,4 +101,63 @@ class Submail   extends SubmailCore
         return $this->processResponse($response);
     }
 
+    /**
+     * @param $to
+     * @param $content
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function voiceSend($to,$content)
+    {
+        $this->send_type    =   'send';
+        $data=$this->sendVoice($to,$content);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $to
+     * @param $content
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function voiceXsend($to,$content)
+    {
+        $this->send_type    =   'xsend';
+        $data=$this->sendVoice($to,$content);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $data
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function voiceMultixsend($data)
+    {
+        $this->send_type    =   'multixsend';
+        $data   = $this->sendVoice($data);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $to
+     * @param $content
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function voiceVerify($to,$content)
+    {
+        $this->send_type    =   'send';
+        $data=$this->sendVoice($to,$content);
+        return $this->send($data);
+    }
+
+    /**
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getVoiceCredits()
+    {
+        $this->send_type    =   'get_sms_credits';
+        $response   =  $this->http->post('balance/voice',[
+            'form_params'=>$this->get_credits()
+        ]);
+        return $this->processResponse($response);
+    }
 }

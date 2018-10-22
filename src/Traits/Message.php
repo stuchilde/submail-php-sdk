@@ -30,7 +30,7 @@ trait Message
             case 'xsend':
                 $res['project']   =   $this->project;
                 $res['to']   =  $params;
-                if($vars) $res['vars'] =   json_encode($method);
+                if($method) $res['vars'] =   json_encode($method);
                 break;
             case 'multisend':
                 $res['content'] =   $params;
