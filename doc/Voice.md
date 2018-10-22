@@ -1,4 +1,4 @@
-#### 发送短信
+#### 发送语音
 
 ###### GATEAWAY_URL
 > [https://api.mysubmail.com/](https://api.mysubmail.com/)
@@ -12,7 +12,7 @@
 <?php 
 $obj->set_category('voice');
 $to =    '130*******';
-$content    =   "【SUBMAIL】您的短信验证码：4438，请在10分钟内输入。";
+$content    =   "【SUBMAIL】您的语音验证码：4438，请在10分钟内输入。";
 $res    =   $obj->voiceSend($to,$content);
 ```
 ###### 请求参数

@@ -11,6 +11,7 @@ use Eckoo\SDK\Traits\HttpRequest;
 use Eckoo\SDK\Traits\Message;
 use Eckoo\SDK\Traits\Voice;
 use Eckoo\SDK\Traits\Mail;
+use Eckoo\SDK\Traits\InternationalSms;
 
 class Submail   extends SubmailCore
 {
@@ -18,6 +19,7 @@ class Submail   extends SubmailCore
     use Message;
     use Mail;
     use Voice;
+    use InternationalSms;
 
     /**
      * @param $to
@@ -156,6 +158,65 @@ class Submail   extends SubmailCore
     {
         $this->send_type    =   'get_sms_credits';
         $response   =  $this->http->post('balance/voice',[
+            'form_params'=>$this->get_credits()
+        ]);
+        return $this->processResponse($response);
+    }
+
+    /**
+     * @param $to
+     * @param $content
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public  function    internationalSmsSend($to,$content)
+    {
+        $this->send_type    =   'send';
+
+        $data   =  $this->sendInternationalSms($to,$content);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $to
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function internationalSmsXsend($to)
+    {
+        $this->send_type    =   'xsend';
+        $data   =  $this->sendInternationalSms($to);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $to
+     * @return array|\Psr\Http\Message\ResponseInterface
+     */
+    public function internationalSmsMultixsend($to)
+    {
+        $this->send_type    =   'multixsend';
+        $data   =  $this->sendInternationalSms($to);
+        return $this->send($data);
+    }
+
+    /**
+     * @param $to
+     * @return array
+     */
+    public function verifyphonenumber($to)
+    {
+        $response   =  $this->http->post('service/verifyphonenumber',[
+            'form_params'=>array('to'=>trim($to))
+        ]);
+        return $this->processResponse($response);
+    }
+
+    /**
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function internationalsms()
+    {
+        $response   =  $this->http->post('balance/internationalsms',[
             'form_params'=>$this->get_credits()
         ]);
         return $this->processResponse($response);

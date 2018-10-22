@@ -9,15 +9,14 @@
 namespace Eckoo\SDK\Traits;
 
 
-trait InternationalMessage
+trait InternationalSms
 {
-    protected function  sendInternationalMessage($params,$method='')
+    protected function  sendInternationalSms($params,$method='')
     {
         $res['timestamp']   =   $this->get_timestamp();
         $res['timestamp']   =   $res['timestamp']['data']['timestamp'];
         $res['appid']   =   $this->appid;
         $res['sign_type']   =   $this->sign_type;
-
         switch ($this->send_type){
             case 'send':
                 $res['content'] =   $method;

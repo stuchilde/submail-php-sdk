@@ -49,7 +49,30 @@ $configs = [
  * */
 
 $obj = new Submail($configs);
-$obj->set_category('international_message');
+$obj->set_category('internationalsms');
+
+//$to =    '001-626-203-3379';
+//$content    =   "【SUBMAIL】您的短信验证码：4438，请在10分钟内输入。";
+//$res    =   $obj->internationalSmsSend($to,$content);
+
+
+//$to =    '130********';
+//$vars   =   array('code'=>rand(100,999));
+//$res    =   $obj->internationalSmsXsend($to,$vars);
+
+//$data=[
+//    ['to'=>'130********','name'=>'master','code'=>rand(100,999)],
+//    ['to'=>'130********','name'=>'slave','code'=>rand(100,999)]
+//];
+//
+//$res    =   $obj->internationalSmsMultixsend($data);
+//$res    =   $obj->verifyphonenumber('*********');
+$res    =   $obj->internationalsms();
+
+
+var_dump(json_encode($res));die;
+echo '<pre>';
+
 
 
 
