@@ -4,7 +4,7 @@ namespace Eckoo\SDK;
  * Core 
  * @todo 
  * @param array   ENCRYPT 默认目前的三种加密方式
- * @param string  $category  message,email,voice and insmsg 必须
+ * @param string  $category  message,email,voice and international_message 必须
  * @param string  $appid  APPID,必须
  * @param string $appkey  APPKEY,必须
  * @param string $send_type 发送方式，如send,xsend等

@@ -10,29 +10,8 @@ namespace Eckoo\SDK\Traits;
 
 trait Mail
 {
-    protected function  sendMail($conf)   
+    protected function  sendMail($params,$method='')
     {
-        if($env){
-            $this->conf ? $this->conf:$conf;
-        }
 
-        return $response;
     }
-
-    protected function sendxMail($conf)
-    {
-        
-    }
-
-    protected function multisendMail($conf)
-    {
-        # code...
-    }
-
-    protected function multixsendMail($conf)
-    {
-        # code...
-    }
-    
-    
 }   
