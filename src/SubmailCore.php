@@ -101,7 +101,9 @@ abstract class SubmailCore
              reset($request);
              $str   =   '';
              foreach ($request as $key => $value) {
-                 $str .=$key."=".$value."&";
+                if (strpos($key,"attachments")===false){
+                    $arg.=$key."=".$val."&";
+                }
              }
              $str =  substr($str,0,count($str)-2);
              if(get_magic_quotes_gpc()){

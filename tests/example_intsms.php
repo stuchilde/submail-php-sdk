@@ -70,11 +70,11 @@ $obj->set_category('internationalsms');
 //
 //$res    =   $obj->internationalSmsMultixsend($data);
 //$res    =   $obj->verifyphonenumber('*********');
-$res    =   $obj->internationalsms();
+// $res    =   $obj->internationalsms();
 
 
-var_dump(json_encode($res));die;
-echo '<pre>';
+// var_dump(json_encode($res));die;
+// echo '<pre>';
 
 
 
