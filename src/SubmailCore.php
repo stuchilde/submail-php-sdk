@@ -13,6 +13,7 @@ namespace Eckoo\SDK;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
+use Eckoo\SDK\Exceptions;
 
 abstract class SubmailCore
 {
@@ -30,9 +31,18 @@ abstract class SubmailCore
 
     public function __construct($configs)
     {
-        $this->configs  =   $configs;
+        if(isset($configs)){
+            $this->configs  =   $configs;
+        }else{
+            try {
+                $path= dirname(dirname(__FILE__));
+                $this->configs = require($path.'/config/config.php');
+            } catch (\SubmailException $th) {
+                throw $th->getMessage();
+            }
+        }
         $this->http =   new Client([
-            'base_uri'  =>    trim($configs['submail']['base_url']),
+            'base_uri'  =>    trim($this->configs['submail']['base_url']),
             'timeout'  => 2.0
         ]);
     }
@@ -47,10 +57,14 @@ abstract class SubmailCore
             $this->category =  strtolower($category);
             $this->appid    =   trim($this->configs['submail'][$this->category]['appid']);
             $this->appkey   =   trim($this->configs['submail'][$this->category]['appkey']);
-            $this->project  =   trim($this->configs['submail'][$this->category]['project']);
-            $sign   =   trim($this->configs['submail'][$this->category]['sign_type']);
-            $this->sign_type    =  in_array($sign,self::ENCRYPT)?   $sign:'normal';
-            unset($sign);
+            if(isset($this->configs['submail'][$this->category]['project'])){
+                $this->project  =   trim($this->configs['submail'][$this->category]['project']);
+            }
+            if(isset($this->configs['submail'][$this->category]['sign_type'])){
+                $sign   =   trim($this->configs['submail'][$this->category]['sign_type']);
+                 $this->sign_type    =  in_array($sign,self::ENCRYPT)?   $sign:'normal';
+                 unset($sign);
+            }
             unset($this->configs);
         }
     }

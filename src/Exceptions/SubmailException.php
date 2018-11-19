@@ -6,6 +6,7 @@
  *  @author Eckoo <howcyan@gmail.com>
  */
 
+namespace Eckoo\SDK\Exceptions;
 
  class SubmailException extends \Exception
  {

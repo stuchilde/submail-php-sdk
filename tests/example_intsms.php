@@ -9,7 +9,10 @@
 
 require('../vendor/autoload.php');
 use Eckoo\SDK\Submail;
-
+/**
+*   如果调用xsend 接口project为必须
+*   sign_type为非必须    
+*/
 $configs = [
     'submail'   =>  [
         'base_url'   =>  'https://api.mysubmail.com/',
