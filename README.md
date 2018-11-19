@@ -22,6 +22,16 @@ $ composer require Eckoo/submail-php-sdk
 }
 ```
 
+执行命令后，自动加载需要在psr-4规范在composer.json添加
+```json
+    "autoload": {
+        "psr-4": {
+            "Eckoo\\SDK\\": "src"
+        }
+    }
+```
+
+
 ## Usage
 
 如果单独使用别忘了引入composer生成的autoload.php文件
