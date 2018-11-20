@@ -104,7 +104,7 @@ abstract class SubmailCore
              $str   =   '';
              foreach ($request as $key => $value) {
                 if (strpos($key,"attachments")===false){
-                    $arg.=$key."=".$val."&";
+                    $str.=$key."=".$value."&";
                 }
              }
              $str =  substr($str,0,count($str)-2);
