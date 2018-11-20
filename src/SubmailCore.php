@@ -28,6 +28,7 @@ abstract class SubmailCore
     protected   $send_type  ='';
     protected   $timestamp  =   '';
     const ENCRYPT   =   ['normal','md5','sha1'];
+    const API_URL   =   'https://api.mysubmail.com/';
 
     public function __construct($configs)
     {
@@ -41,8 +42,9 @@ abstract class SubmailCore
                 throw $th->getMessage();
             }
         }
+        $url =   isset(trim($this->configs['submail']['base_url']))    ?   trim($this->configs['submail']['base_url']): self::API_URL;
         $this->http =   new Client([
-            'base_uri'  =>    trim($this->configs['submail']['base_url']),
+            'base_uri'  =>    $url,
             'timeout'  => 2.0
         ]);
     }

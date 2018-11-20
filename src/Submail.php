@@ -221,4 +221,30 @@ class Submail   extends SubmailCore
         ]);
         return $this->processResponse($response);
     }
+
+    public function mailSend($to,$from,$from_name,$subject='',$vars=array(),$links=array(),$attachments=array(),$headers='',$asynchronous=null,$tag='',$reply='',$cc='',$bcc='',$text='',$html='')
+    {
+        $this->send_type    =   'send';
+        $data['to'] =   implode(',', $to);
+        $data['from']   =   $from;               
+        $data['from_name']   =   $from_name;               
+        $data['subject']   =   $subject;               
+        $data['vars']   =   json_encode($vars);  
+        $data['links']   =   json_encode($links);                
+        $data   =   $this->sendMail();
+        return $this->send($data);
+    }
+
+    public function mailXsend($project,$to,$from,$from_name,$reply='',$cc='',$bcc='',$subject='',$vars=array(),$links=array(),$attachments=array(),$headers='',$asynchronous=null,$tag='')
+    {
+        $this->send_type    =   'xsend';
+        $data['to'] =   implode(',', $to);
+        $data['from']   =   $from;               
+        $data['from_name']   =   $from_name;               
+        $data['subject']   =   $subject;               
+        $data['vars']   =   json_encode($vars);  
+        $data['links']   =   json_encode($links);  
+        $data   =   $this->sendMail($data,$content);
+        return $this->send($data);
+    }
 }
