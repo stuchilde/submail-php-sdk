@@ -13,9 +13,6 @@ use Eckoo\SDK\Submail;
 *   sign_type为非必须    
 */
 $configs = [
-    'submail'   =>  [
-        'base_url'   =>  'https://api.mysubmail.com/',
-
         'message'   =>  [
             'appid'    =>  '******',
             'appkey'    =>  '******',
@@ -41,7 +38,6 @@ $configs = [
             'project'    =>  '******',
             'sign_type'    =>  '******',
         ]
-    ]
 ];
 
 /*  -----------------------------------------------------------------------------
@@ -50,7 +46,7 @@ $configs = [
  *  可供选择的参数 如[message,voice,international_message,email]
  * */
 
-$obj = new Submail($configs);
+$obj = new Submail($configs['message']);
 $obj->set_category('message');
 
 /*  -----------------------------------------------------------------------------

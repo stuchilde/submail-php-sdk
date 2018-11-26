@@ -227,10 +227,10 @@ class Submail   extends SubmailCore
         $this->send_type    =   'send';
         $data['to'] =   implode(',', $to);
         $data['from']   =   $from;               
-        $data['from_name']   =   $from_name;               
-        $data['subject']   =   $subject;               
-        $data['vars']   =   json_encode($vars);  
-        $data['links']   =   json_encode($links);                
+        $data['from_name']   =   $from_name;  
+        if($subject)  $data['subject']   =   $subject;            
+        if($vars)  $data['vars']   =   json_encode($vars);                 
+        if($links)  $data['links']   =   json_encode($links);                              
         $data   =   $this->sendMail();
         return $this->send($data);
     }
@@ -242,9 +242,9 @@ class Submail   extends SubmailCore
         $data['from']   =   $from;               
         $data['from_name']   =   $from_name;               
         $data['subject']   =   $subject;               
-        $data['vars']   =   json_encode($vars);  
-        $data['links']   =   json_encode($links);  
-        $data   =   $this->sendMail($data,$content);
+        if($subject)  $data['subject']   =   $subject;            
+        if($vars)  $data['vars']   =   json_encode($vars);                 
+        if($links)  $data['links']   =   json_encode($links);
         return $this->send($data);
     }
 }

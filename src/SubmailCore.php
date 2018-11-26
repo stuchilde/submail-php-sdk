@@ -42,9 +42,8 @@ abstract class SubmailCore
                 throw $th->getMessage();
             }
         }
-        $url =   isset(trim($this->configs['submail']['base_url']))    ?   trim($this->configs['submail']['base_url']): self::API_URL;
         $this->http =   new Client([
-            'base_uri'  =>    $url,
+            'base_uri'  =>    self::API_URL,
             'timeout'  => 2.0
         ]);
     }
@@ -57,13 +56,13 @@ abstract class SubmailCore
     {
         if($category){
             $this->category =  strtolower($category);
-            $this->appid    =   trim($this->configs['submail'][$this->category]['appid']);
-            $this->appkey   =   trim($this->configs['submail'][$this->category]['appkey']);
-            if(isset($this->configs['submail'][$this->category]['project'])){
-                $this->project  =   trim($this->configs['submail'][$this->category]['project']);
+            $this->appid    =   trim($this->configs[$this->category]['appid']);
+            $this->appkey   =   trim($this->configs[$this->category]['appkey']);
+            if(isset($this->configs[$this->category]['project'])){
+                $this->project  =   trim($this->configs [$this->category]['project']);
             }
-            if(isset($this->configs['submail'][$this->category]['sign_type'])){
-                $sign   =   trim($this->configs['submail'][$this->category]['sign_type']);
+            if(isset($this->configs [$this->category]['sign_type'])){
+                $sign   =   trim($this->configs [$this->category]['sign_type']);
                  $this->sign_type    =  in_array($sign,self::ENCRYPT)?   $sign:'normal';
                  unset($sign);
             }
