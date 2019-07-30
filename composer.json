@@ -11,7 +11,7 @@
     "authors": [
         {
             "name": "Eckoo",
-            "email": "howcyan@gmail.com",
+            "email": "cyan8@live.com",
             "homepage": "https://www.mysubmail.com/",
             "role": "Developer"
         }
@@ -29,15 +29,7 @@
             "Eckoo\\SDK\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Eckoo\\SDK\\": "tests"
-        }
-    },
     "type" : "library",
-    "scripts": {
-        "test": "phpunit"
-    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
@@ -50,5 +42,6 @@
                 "Debugbar": "Eckoo\\SDK\\Facade"
             }
         }
-    }
+    },
+    "minimum-stability": "stable",
 }
