@@ -1,5 +1,5 @@
 {
-    "name": "submail/submail-php-sdk",
+    "name": "stuchilde/submail-php-sdk",
     "description": "赛邮云通信submail php'sdk",
     "keywords": [
         "submail",
@@ -10,7 +10,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "submail",
+            "name": "stuchilde",
             "email": "stuchilde@outlook.com",
             "homepage": "https://icoder.tech/",
             "role": "Developer"
