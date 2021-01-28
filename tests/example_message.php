@@ -3,11 +3,11 @@
 /**
  *  @version 1.0.0
  *  @todo use for sms sdk.
- *  @author Eckoo <howcyan@gmail.com>
+ *  @author Submail <stuchilde@outlook.com>
  */
 
 require('../vendor/autoload.php');
-use Eckoo\SDK\Submail;
+use Submail\SDK\Submail;
 /**
 *   如果调用xsend 接口project为必须
 *   sign_type为非必须    
@@ -102,6 +102,6 @@ $obj->set_category('message');
  * */
 //$res    =   $obj->getSmsLog();
 
-var_dump(json_encode($res));die;
+//var_dump(json_encode($res));die;
 //echo '<pre>';
 

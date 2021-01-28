@@ -3,10 +3,10 @@
 /**
  *  @version 1.0.0
  *  @todo use throw error code
- *  @author Eckoo <howcyan@gmail.com>
+ *  @author Submail <stuchilde@outlook.com>
  */
 
-namespace Eckoo\SDK\Exceptions;
+namespace Submail\SDK\Exceptions;
 
  class SubmailException extends \Exception
  {

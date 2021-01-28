@@ -6,7 +6,7 @@
  * Time: 11:11 AM
  */
 
-namespace Eckoo\SDK\Facades;
+namespace Submail\SDK\Facades;
 
 
 class Voice

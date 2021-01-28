@@ -3,7 +3,7 @@
 /**
  *  @version 1.0.0
  *  @todo use for configs's method.
- *  @author Eckoo <howcyan@gmail.com>
+ *  @author Submail <stuchilde@outlook.com>
  */
 
 return [

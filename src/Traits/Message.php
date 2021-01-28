@@ -6,7 +6,7 @@
  * Time: 10:44 AM
  */
 
-namespace Eckoo\SDK\Traits;
+namespace Submail\SDK\Traits;
 
 trait Message
 {

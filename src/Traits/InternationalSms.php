@@ -6,7 +6,7 @@
  * Time: 2:27 PM
  */
 
-namespace Eckoo\SDK\Traits;
+namespace Submail\SDK\Traits;
 
 
 trait InternationalSms

@@ -6,7 +6,7 @@
  * Time: 9:51 AM
  */
 
-namespace Eckoo\SDK\Traits;
+namespace Submail\SDK\Traits;
 
 
 trait Voice

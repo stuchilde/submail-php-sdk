@@ -6,12 +6,12 @@
  * Time: 11:06 AM
  */
 
-namespace Eckoo\SDK;
-use Eckoo\SDK\Traits\HttpRequest;
-use Eckoo\SDK\Traits\Message;
-use Eckoo\SDK\Traits\Voice;
-use Eckoo\SDK\Traits\Mail;
-use Eckoo\SDK\Traits\InternationalSms;
+namespace Submail\SDK;
+use Submail\SDK\Traits\HttpRequest;
+use Submail\SDK\Traits\Message;
+use Submail\SDK\Traits\Voice;
+use Submail\SDK\Traits\Mail;
+use Submail\SDK\Traits\InternationalSms;
 
 class Submail   extends SubmailCore
 {

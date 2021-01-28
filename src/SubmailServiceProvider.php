@@ -1,6 +1,6 @@
 <?php
 
-namespace Eckoo\SDK;
+namespace Submail\SDK;
 
 use Illuminate\Support\ServiceProvider;
 

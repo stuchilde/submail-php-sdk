@@ -8,7 +8,7 @@
 /**
  * Class Facade.
  */
-namespace Eckoo\SDK\Facades;
+namespace Submail\SDK\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

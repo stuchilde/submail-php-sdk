@@ -6,7 +6,7 @@
  * Time: 11:10 AM
  */
 
-namespace Eckoo\SDK\Facades;
+namespace Submail\SDK\Facades;
 
 
 class Email

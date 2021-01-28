@@ -1,5 +1,5 @@
 <?php
-namespace Eckoo\SDK;
+namespace Submail\SDK;
 /**
  * Core 
  * @todo 
@@ -13,7 +13,7 @@ namespace Eckoo\SDK;
 
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
-use Eckoo\SDK\Exceptions;
+use Submail\SDK\Exceptions;
 
 abstract class SubmailCore
 {

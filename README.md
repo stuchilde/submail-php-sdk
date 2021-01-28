@@ -11,14 +11,14 @@ SUBMAIL赛邮云通信作为专业短信群发平台,致力于为政企及个人
 Via Composer
 
 ``` bash
-$ composer require Eckoo/submail-php-sdk
+$ composer require Submail/submail-php-sdk
 ```
 
 也可以修改composer.json之后，执行  composer update  更新项目
 
 ```json
 "require": {
-    "eckoo/submail-php-sdk" : "~1.0"
+    "submail/submail-php-sdk" : "~1.0"
 }
 ```
 
@@ -26,7 +26,7 @@ $ composer require Eckoo/submail-php-sdk
 ```json
     "autoload": {
         "psr-4": {
-            "Eckoo\\SDK\\": "src"
+            "Submail\\SDK\\": "src"
         }
     }
 ```
@@ -92,7 +92,7 @@ If you discover any security related issues, please email :author_email instead 
 
 ## Credits
 
-- [Eckoo](https://github.com/Eckoo)
+- [Submail](https://github.com/stuchilde)
 - [All Contributors](../../contributors)
 
 ## License
